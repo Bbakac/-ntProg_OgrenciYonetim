@@ -1,0 +1,87 @@
+@model OgrenciYonetim.Models.Ogrenciler
+
+<h2>Öğrenci Silme</h2>
+
+<div>
+    <h4>Öğrenciler</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Öğrenci No
+        </dt>
+        <dd class="col-sm-10">
+            @Model.OgrenciNo
+        </dd>
+        <dt class="col-sm-2">
+            Ad
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Ad
+        </dd>
+        <dt class="col-sm-2">
+            Soyad
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Soyad
+        </dd>
+        <dt class="col-sm-2">
+            Sınıf
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Sinif
+        </dd>
+        <dt class="col-sm-2">
+            Ders Tanımı
+        </dt>
+        <dd class="col-sm-10">
+            @Model.DersTanimi
+        </dd>
+        <dt class="col-sm-2">
+            Kredi
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Kredi
+        </dd>
+        <dt class="col-sm-2">
+            Sınav Tarihi
+        </dt>
+        <dd class="col-sm-10">
+            @Model.SinavTarihi.ToShortDateString()
+        </dd>
+        <dt class="col-sm-2">
+            Vize Notu
+        </dt>
+        <dd class="col-sm-10">
+            @Model.VizeNotu
+        </dd>
+        <dt class="col-sm-2">
+            Final Notu
+        </dt>
+        <dd class="col-sm-10">
+            @Model.FinalNotu
+        </dd>
+        <dt class="col-sm-2">
+            Ortalama
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Ortalama
+        </dd>
+        <dt class="col-sm-2">
+            Harf Karşılığı
+        </dt>
+        <dd class="col-sm-10">
+            @Model.HarfKarsiligi
+        </dd>
+        <dt class="col-sm-2">
+            Geçme Durumu
+        </dt>
+        <dd class="col-sm-10">
+            @Model.GecmeDurumu
+        </dd>
+    </dl>
+</div>
+<form asp-action="Sil" method="post">
+    <input type="hidden" name="id" value="@Model.OgrenciNo" />
+    <button type="submit" class="btn btn-danger">Sil</button> |
+    <a href="@Url.Action("Index", "Ogrenciler")">Geri</a>
+</form>

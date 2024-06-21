@@ -1,0 +1,51 @@
+﻿@model List<OgrenciYonetim.Models.Ogrenciler>
+
+@{
+    ViewData["Title"] = "Öğrenci Listesi";
+}
+
+<h2>Öğrenci Listesi</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ogrenci No</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Sınıf</th>
+            <th>Ders Tanımı</th>
+            <th>Kredi</th>
+            <th>Sınav Tarihi</th>
+            <th>Vize Notu</th>
+            <th>Final Notu</th>
+            <th>Ortalama</th>
+            <th>Harf Karşılığı</th>
+            <th>Geçme Durumu</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ogrenci in Model)
+        {
+            <tr>
+                <td>@ogrenci.OgrenciNo</td>
+                <td>@ogrenci.Ad</td>
+                <td>@ogrenci.Soyad</td>
+                <td>@ogrenci.Sinif</td>
+                <td>@ogrenci.DersTanimi</td>
+                <td>@ogrenci.Kredi</td>
+                <td>@ogrenci.SinavTarihi.ToShortDateString()</td>
+                <td>@ogrenci.VizeNotu</td>
+                <td>@ogrenci.FinalNotu</td>
+                <td>@ogrenci.Ortalama</td>
+                <td>@ogrenci.HarfKarsiligi</td>
+                <td>@ogrenci.GecmeDurumu</td>
+                <td>
+                    <a href="@Url.Action("Detay", "Ogrenciler", new { id = ogrenci.OgrenciNo })">Detay</a> |
+                    <a href="@Url.Action("Guncelle", "Ogrenciler", new { id = ogrenci.OgrenciNo })">Güncelle</a> |
+                    <a href="@Url.Action("Sil", "Ogrenciler", new { id = ogrenci.OgrenciNo })">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="@Url.Action("Yeni", "Ogrenciler")">Yeni Kayıt</a>

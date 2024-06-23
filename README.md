@@ -96,7 +96,3 @@ The student model used in the project is as follows:
 ## Contributing
 
 To contribute, please submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
